@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="mashen" extends="struts-default">
+	<interceptors>
+		<interceptor name="login" class="com.mashen.ssh.interceptor.LoginInterceptor"></interceptor>
+		<interceptor-stack name="login2">
+			<interceptor-ref name="login"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	
+	<global-results>
+		<result name="error">/WEB-INF/error/error.jsp</result>
+	</global-results>
+</package>
+<constant name="struts.convention.action.packages" value="com.mashen.ssh.action" />
+</struts>
